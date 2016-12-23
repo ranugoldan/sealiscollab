@@ -93,7 +93,9 @@ class AdminController extends Controller
 	 */
 	public function edit(Wilayah $wilayah)
 	{
-		//
+		$stasiuns = $this->stasiuns;
+		$selectedStasiun = Stasiun::where('id', $wilayah->stasiun_id)->first();
+		return view('admin.edit', compact('wilayah','stasiuns','selectedStasiun'));
 	}
 
 	/**
@@ -105,15 +107,12 @@ class AdminController extends Controller
 	public function update(Wilayah $wilayah, Request $request)
 	{
 
-		//
+		$input = ['nama'=> $request->nama ,
+			'lat' => $request->lat,
+			'lon' => $request->lon];
+		$wilayah->fill($input)->save();
+		return redirect()->action('AdminController@wilayah', ['id' => $request->stasiun_id]);
 	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function delete(Wilayah $wilayah)
 	{
 		$stasiuns = $this->stasiuns;
