@@ -35,7 +35,7 @@
 			<td>
 				<!-- BUTTON URLs -->
 				<a href="{{ URL::to('admin/wilayah/'.$story->id.'/edit') }}"><span class="glyphicon glyphicon-pencil"></span></a>
-				<a href="{{ URL::to('admin/wilayah/'.$story->id.'/destroy') }}"><span class="glyphicon glyphicon-trash"></span></a>
+				<a href="{{ URL::to('admin/wilayah/'.$story->id.'/delete') }}"><span class="glyphicon glyphicon-trash"></span></a>
 			</td>
 		</tr>
 		@endforeach
