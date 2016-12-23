@@ -15,22 +15,22 @@
 <div id="table">
 	<table class="table table-hover">
 		<th>ID</th>
-		<th>Nama Wilayah</th>
+		<th>Region name</th>
 		<th>Info</th>
-		<th>Terakhir diupdate</th>
-		<th>Prediksi</th>
-		<th>Terakhir diupdate</th>
+		<th>Last info update</th>
+		<th>Prediciton</th>
+		<th>Last prediction update</th>
 		<th>Action</th>
 		@if($stories->isEmpty())
-			<p>Belum ada wilayah</p>
+			<p>No region found yet!</p>
 		@else
 		@foreach($stories as $story)
 		<tr>
 			<td>{{$story->id}}</td>
 			<td>{{$story->nama}}</td>
-			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/info') }}">Klik disini untuk update</a></td>
+			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/info') }}">Click here to update info</a></td>
 			<td>{{$story->info->updated_at}}</td>
-			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/prediksi') }}">Klik disini untuk update</a></td>
+			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/prediksi') }}">Click here to update prediction</a></td>
 			<td>{{$story->prediksi->updated_at}}</td>
 			<td>
 				<!-- BUTTON URLs -->
