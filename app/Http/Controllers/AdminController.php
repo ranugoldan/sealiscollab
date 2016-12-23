@@ -34,6 +34,13 @@ class AdminController extends Controller
 		$this->stasiuns = Stasiun::All();
 	}
 
+	/**
+
+	index()
+	Method untuk memuat halaman utama admin
+
+
+	**/
 	public function index()
 	{
 		$stasiuns = Stasiun::All();
@@ -45,6 +52,13 @@ class AdminController extends Controller
 
 	}
 
+	/**
+
+	wilayah()
+	Method untuk memuat halaman list wilayah berdasarkan wilayah yang dipilih
+
+
+	**/
 	public function wilayah(Request $request)
 	{
 
