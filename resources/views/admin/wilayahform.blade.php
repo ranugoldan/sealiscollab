@@ -17,21 +17,42 @@ padding:5px; border:1px dashed #C2DAE7;}
 	{!! $errors->first('nama','<span class="help-block">:message</span>') !!}
 	</div>
 
+	<div class="form-group">
+		<div id="map-canvas" class="map-canvas">
 
-	<div class="form-group {{ $errors->has('lat')? 'has-error': '' }}">
-
-		{!! Form::label('Latitude') !!}
-		{!! Form::text('lat', null, ['class' => 'form-control',  'id' => 'lat']) !!}
-		{!! Form::label('Longitude') !!}
-		{!! Form::text('lon', null, ['class' => 'form-control',  'id' => 'lon']) !!}
-		{!! Form::hidden('stasiun_id', $selectedStasiun->id, ['class' => 'form-control', 'id' => 'stasiun_id', 'value' => $selectedStasiun->id]) !!}
-
+		</div>
 	</div>
 
+	<div class="form-group col-xs-6 {{ $errors->has('lat')? 'has-error': '' }}">
+		{!! Form::label('Latitude', null, ['class' => 'control-label']) !!}
+		{!! Form::text('lat', null, ['class' => 'form-control', 'readonly' => 'readonly', 'id' => 'lat']) !!}
+	</div>
+	<div class="form-group col-xs-6 {{ $errors->has('lat')? 'has-error': '' }}">
+		{!! Form::label('Longitude') !!}
+		{!! Form::text('lon', null, ['class' => 'form-control', 'readonly' => 'readonly', 'id' => 'lon']) !!}
+	</div>
+	{!! Form::hidden('stasiun_id', $selectedStasiun->id, ['class' => 'form-control', 'id' => 'stasiun_id', 'value' => $selectedStasiun->id]) !!}
 
-	   
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<script>
 
+	var map;
+	function maps() {
+		var opts = {'center': new google.maps.LatLng(-5.878332, 115.290527), 'zoom':5, 'mapTypeId': google.maps.MapTypeId.ROADMAP }
+		map = new google.maps.Map(document.getElementById('map-canvas'),opts);
 
+		google.maps.event.addListener(map,'click',function(event) {
+			document.getElementById('lat').value = event.latLng.lat()
+			document.getElementById('lon').value = event.latLng.lng()
+		})
+
+		google.maps.event.addListener(map,'mousemove',function(event) {
+		});
+	}
+
+	window.onload = maps
+
+	</script>
 
 	<div class="form-group">
 	{!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
