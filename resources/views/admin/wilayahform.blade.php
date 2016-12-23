@@ -12,11 +12,13 @@ padding:5px; border:1px dashed #C2DAE7;}
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 	<div class="form-group {{ $errors->has('nama')? 'has-error': '' }}">
-	{!! Form::label('Nama') !!}
+	{!! Form::label('Name') !!}
 	{!! Form::text('nama', null, ['class' => 'form-control']) !!}
 	{!! $errors->first('nama','<span class="help-block">:message</span>') !!}
 	</div>
 
+	<!-- This is map section -->
+	{!! Form::label('Map') !!}
 	<div class="form-group">
 		<div id="map-canvas" class="map-canvas">
 
