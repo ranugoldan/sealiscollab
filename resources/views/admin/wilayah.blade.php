@@ -7,7 +7,7 @@
 </h1>
 </div>
 <div id="admin-header-right" class="col-md-6">
-	<a href="{{ URL::to('admin/wilayah/create') }}<?php echo "?id=$request->id"; ?>" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Tambah Wilayah Baru</a>
+	<a href="{{ URL::to('admin/wilayah/create') }}<?php echo "?id=$request->id"; ?>" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Create New Region</a>
 </div>
 </div>
 
@@ -28,9 +28,9 @@
 		<tr>
 			<td>{{$story->id}}</td>
 			<td>{{$story->nama}}</td>
-			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/info') }}">Click here to update info</a></td>
+			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/info') }}">Update</a></td>
 			<td>{{$story->info->updated_at}}</td>
-			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/prediksi') }}">Click here to update prediction</a></td>
+			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/prediksi') }}">Update</a></td>
 			<td>{{$story->prediksi->updated_at}}</td>
 			<td>
 				<!-- BUTTON URLs -->
