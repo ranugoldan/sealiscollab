@@ -85,7 +85,7 @@ class AdminController extends Controller
 
 	}
 
-	/**
+	/** <!-- ini hanya untuk edit submit data>
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int  $id
