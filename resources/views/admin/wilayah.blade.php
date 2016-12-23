@@ -11,7 +11,7 @@
 </div>
 </div>
 
-<!-- LIST WILAYAH TABLE -->
+<!-- BEGIN LIST WILAYAH TABLE -->
 <div id="table">
 	<table class="table table-hover">
 		<th>ID</th>
@@ -33,12 +33,14 @@
 			<td><a href="{{ URL::to('admin/wilayah/'.$story->id.'/prediksi') }}">Klik disini untuk update</a></td>
 			<td>{{$story->prediksi->updated_at}}</td>
 			<td>
-			<a href="{{ URL::to('admin/wilayah/'.$story->id.'/edit') }}"><span class="glyphicon glyphicon-pencil"></span></a>
-			<a href="{{ URL::to('admin/wilayah/'.$story->id.'/delete') }}"><span class="glyphicon glyphicon-trash"></span></a>
+				<!-- BUTTON URLs -->
+				<a href="{{ URL::to('admin/wilayah/'.$story->id.'/edit') }}"><span class="glyphicon glyphicon-pencil"></span></a>
+				<a href="{{ URL::to('admin/wilayah/'.$story->id.'/destroy') }}"><span class="glyphicon glyphicon-trash"></span></a>
 			</td>
 		</tr>
 		@endforeach
 		@endif
 	</table>
 </div>
+<!-- END LIST WILAYAH TABLE -->
 @stop
