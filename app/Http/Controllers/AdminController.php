@@ -34,12 +34,14 @@ class AdminController extends Controller
 		$this->stasiuns = Stasiun::All();
 	}
 
+	// Grab semua model stasiun untuk ditampilkan ke dalam navigasi di HTML
 	public function index()
 	{
 		$stasiuns = Stasiun::All();
 		return view('admin.index', compact('stasiuns'));
 	}
 
+	// Login dibenahi nanti
 	public function login()
 	{
 
@@ -52,7 +54,6 @@ class AdminController extends Controller
 		$stasiuns = Stasiun::All();
 		$id = intval($request->id);
 		$namaStasiun = $stasiuns->where('id', $id)->first()->nama;
-		//dd($stories->first()->stasiun());
 		return view('admin.wilayah',compact('stories','stasiuns','namaStasiun','request'));
 	}
 
